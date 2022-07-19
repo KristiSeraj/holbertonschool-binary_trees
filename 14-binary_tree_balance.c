@@ -10,8 +10,8 @@ int find_height(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	l = height(tree->left);
-	r = height(tree->right);
+	l = find_height(tree->left);
+	r = find_height(tree->right);
 	if (l >= r)
 		return (1 + l);
 	else
@@ -27,5 +27,5 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	return (height(tree->left) - height(tree->right));
+	return (find_height(tree->left) - find_height(tree->right));
 }
